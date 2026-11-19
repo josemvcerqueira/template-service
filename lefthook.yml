@@ -1,0 +1,19 @@
+assert_lefthook_installed: true
+# why: commits and pushes fail on the same rules as the gate. Never use --no-verify; CI runs the gate anyway.
+pre-commit:
+  parallel: true
+  jobs:
+    - name: standard
+      run: npx --no-install ip-standards-verify
+    - name: oxfmt
+      run: npx --no-install oxfmt --check {staged_files}
+    - name: oxlint
+      glob: "*.{ts,tsx,js,mjs}"
+      run: npx --no-install oxlint --deny-warnings src
+    - name: tsc
+      glob: "*.{ts,tsx}"
+      run: npx --no-install tsc
+pre-push:
+  jobs:
+    - name: gate
+      run: bash scripts/gate.sh

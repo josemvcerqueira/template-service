@@ -1,0 +1,9 @@
+{
+  "extends": "@interest-protocol/standards/tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "allowImportingTsExtensions": true,
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["src", "vitest.config.ts"]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "ts-service",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/app/main.ts",
+    "start": "tsx src/app/main.ts",
+    "lint": "oxlint --deny-warnings src",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "gate": "bash scripts/gate.sh",
+    "prepare": "git rev-parse --git-dir >/dev/null 2>&1 || exit 0; lefthook install",
+    "check:standard": "ip-standards-verify",
+    "knip": "knip"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@interest-protocol/standards": "github:interest-protocol/standards#v0.1.0",
+    "@types/node": "^24.19.1",
+    "eslint-plugin-sonarjs": "^4.2.2",
+    "knip": "^6.46.1",
+    "lefthook": "^2.2.2",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
+    "oxlint-plugin-eslint": "^1.94.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.1"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
