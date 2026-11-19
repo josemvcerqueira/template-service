@@ -16,5 +16,12 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+      - name: Fetch the standards package over HTTPS
+        env:
+          STANDARDS_TOKEN: ${{ secrets.STANDARDS_TOKEN }}
+        run: |
+          auth=""
+          if [ -n "$STANDARDS_TOKEN" ]; then auth="x-access-token:${STANDARDS_TOKEN}@"; fi
+          git config --global url."https://${auth}github.com/".insteadOf ssh://git@github.com/
       - run: npm ci
       - run: bash scripts/gate.sh

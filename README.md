@@ -15,3 +15,5 @@ gh api -X POST repos/OWNER/REPO/rulesets --input .github/ruleset.json
 ```
 
 Included: a `src/platform/` layer (http, clock, log, server) that is the only code allowed to touch the runtime, Oxlint and oxfmt from `@interest-protocol/standards`, the house tsconfig, zod env parsing at boot, the standard `src/` folders, lefthook pre-commit and pre-push hooks, a GitHub Actions gate, and Claude Code hooks that block edits to the rules, lint after every edit, and keep Claude working until the gate passes. See STANDARD.md#enforcement.
+
+CI installs `@interest-protocol/standards` from GitHub over HTTPS. While that repo is private, add a repository secret `STANDARDS_TOKEN`: a fine-grained token with read access to `josemvcerqueira/standards` contents. If the repo is public, no secret is needed.
