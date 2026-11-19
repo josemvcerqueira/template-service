@@ -1,6 +1,6 @@
 # template-service
 
-The starter for new Node services. On GitHub press **Use this template**, then rename `ts-service` in `package.json` and `AGENTS.md`. Rules come from [`@interest-protocol/standards`](https://github.com/interest-protocol/standards) at a pinned tag: bump the tag to get rule updates, never copy rules into this repo.
+The starter for new Node services. On GitHub press **Use this template**, then rename `ts-service` in `package.json` and `AGENTS.md`. Rules come from [`@interest-protocol/standards`](https://github.com/josemvcerqueira/standards) at a pinned tag: bump the tag to get rule updates, never copy rules into this repo.
 
 ```sh
 npm install
