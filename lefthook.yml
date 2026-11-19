@@ -6,7 +6,7 @@ pre-commit:
     - name: standard
       run: npx --no-install ip-standards-verify
     - name: oxfmt
-      run: npx --no-install oxfmt --check {staged_files}
+      run: npx --no-install oxfmt --check --no-error-on-unmatched-pattern {staged_files}
     - name: oxlint
       glob: "*.{ts,tsx,js,mjs}"
       run: npx --no-install oxlint --deny-warnings src
