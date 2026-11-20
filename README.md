@@ -1,11 +1,11 @@
 # template-service
 
-The starter for new Node services. On GitHub press **Use this template**, then rename `ts-service` in `package.json` and `AGENTS.md`. Rules come from [`@interest-protocol/standards`](https://github.com/josemvcerqueira/standards) at a pinned tag: bump the tag to get rule updates, never copy rules into this repo.
+The starter for new Bun services. On GitHub press **Use this template**, then rename `ts-service` in `package.json` and `AGENTS.md`. Rules come from [`@interest-protocol/standards`](https://github.com/josemvcerqueira/standards) at a pinned tag: bump the tag to get rule updates, never copy rules into this repo.
 
 ```sh
-npm install
-npm run dev      # tsx watch, GET /health on PORT
-npm run gate     # oxfmt, oxlint, tsc, vitest: the merge check
+bun install
+bun run dev      # bun --watch, GET /health on PORT
+bun run gate     # verify, oxfmt, oxlint, tsc, knip, bun test: the merge check
 ```
 
 After the first push, make the gate required on `main` (needs repo admin):

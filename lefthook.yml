@@ -4,15 +4,15 @@ pre-commit:
   parallel: true
   jobs:
     - name: standard
-      run: npx --no-install ip-standards-verify
+      run: bunx ip-standards-verify
     - name: oxfmt
-      run: npx --no-install oxfmt --check {staged_files}
+      run: bunx oxfmt --check --no-error-on-unmatched-pattern {staged_files}
     - name: oxlint
       glob: "*.{ts,tsx,js,mjs}"
-      run: npx --no-install oxlint --deny-warnings src
+      run: bunx oxlint --deny-warnings src
     - name: tsc
       glob: "*.{ts,tsx}"
-      run: npx --no-install tsc
+      run: bunx tsc
 pre-push:
   jobs:
     - name: gate
