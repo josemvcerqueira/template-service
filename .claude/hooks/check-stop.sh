@@ -2,7 +2,7 @@
 # why: Claude Code Stop hook. Claude may not finish while the gate fails. After 5 blocked attempts in a row it may
 # why: stop, so a rule it cannot satisfy reaches a person instead of looping; the gate still blocks the push and CI.
 set -uo pipefail
-session=$(node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>process.stdout.write(String(JSON.parse(s).session_id??"none")))')
+session=$(bun -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>process.stdout.write(String(JSON.parse(s).session_id??"none")))')
 cd "${CLAUDE_PROJECT_DIR:-.}"
 count_file="${TMPDIR:-/tmp}/gate-blocks-$session"
 if out=$(bash scripts/gate.sh 2>&1); then

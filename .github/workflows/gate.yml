@@ -12,16 +12,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version-file: .nvmrc
-          cache: npm
-      - name: Fetch the standards package over HTTPS
-        env:
-          STANDARDS_TOKEN: ${{ secrets.STANDARDS_TOKEN }}
-        run: |
-          auth=""
-          if [ -n "$STANDARDS_TOKEN" ]; then auth="x-access-token:${STANDARDS_TOKEN}@"; fi
-          git config --global url."https://${auth}github.com/".insteadOf ssh://git@github.com/
-      - run: npm ci
+          bun-version-file: package.json
+      - run: bun install --frozen-lockfile
       - run: bash scripts/gate.sh

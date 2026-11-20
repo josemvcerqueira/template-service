@@ -5,5 +5,12 @@
   "singleQuote": false,
   "trailingComma": "all",
   "arrowParens": "always",
-  "ignorePatterns": ["node_modules", "dist", "coverage", "package-lock.json", "oxlint/*.json"]
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "coverage",
+    ".turbo",
+    "package-lock.json",
+    "oxlint/*.json"
+  ]
 }
